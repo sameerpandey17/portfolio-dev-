@@ -349,7 +349,8 @@ export default function Stack() {
         {/* ── Section Header ── */}
             <div
               ref={headerRef}
-              className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-4"
+              style={{ marginBottom: "clamp(28px, 3.5vw, 44px)" }}
+              className="flex flex-col md:flex-row md:items-end justify-between gap-4"
             >
               <div>
                 <h2
@@ -400,41 +401,55 @@ export default function Stack() {
               </div>
             </div>
 
-            {/* ── CORE STACK HIGHLIGHTED BAND (Vertical margin 32-40px before & after) ── */}
+            {/* ── CORE STACK HIGHLIGHTED DOCK (Generous vertical spacing before & after) ── */}
             <div
               ref={coreStripRef}
-              className="my-8 md:my-10 px-5 py-4 rounded-lg bg-emerald-400/[0.05] border border-emerald-400/20 flex flex-col lg:flex-row lg:items-center justify-between gap-4"
+              style={{
+                marginTop: 0,
+                marginBottom: "clamp(56px, 6.5vw, 92px)",
+              }}
+              className="px-5 py-4.5 sm:px-6 sm:py-5 rounded-2xl bg-[#0D0F0E]/85 backdrop-blur-xl border border-white/[0.07] shadow-[0_8px_32px_-8px_rgba(0,0,0,0.6),inset_0_1px_0_0_rgba(255,255,255,0.05)] flex flex-col lg:flex-row lg:items-center justify-between gap-5 relative overflow-hidden"
             >
-              {/* Left: Core stack pill list */}
-              <div className="flex items-center flex-wrap gap-2.5 sm:gap-3.5">
-                <span
-                  className="font-mono text-[12px] sm:text-[12.5px] font-semibold tracking-[0.14em] uppercase text-emerald-400 bg-emerald-400/10 border border-emerald-400/25 px-3 py-1 rounded-full select-none flex-shrink-0"
-                >
-                  CORE STACK
-                </span>
+              {/* Subtle ambient light gradient in background */}
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute -top-16 -left-16 w-56 h-56 bg-emerald-500/[0.035] rounded-full blur-3xl"
+              />
 
-                <div className="flex items-center flex-wrap gap-x-2.5 gap-y-1.5 font-mono text-[15px] sm:text-[16px] text-zinc-100 font-medium">
-                  {CORE_STACK_ITEMS.map((item, idx) => (
-                    <React.Fragment key={item}>
-                      <span className="hover:text-emerald-300 transition-colors">
-                        {item}
-                      </span>
-                      {idx < CORE_STACK_ITEMS.length - 1 && (
-                        <span className="text-zinc-600 select-none font-normal">/</span>
-                      )}
-                    </React.Fragment>
+              {/* Left: Core stack pill list */}
+              <div className="relative z-10 flex items-center flex-wrap gap-3 sm:gap-3.5">
+                <div className="flex items-center gap-2.5 flex-shrink-0 select-none">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60" />
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.9)]" />
+                  </span>
+                  <span className="font-mono text-[11px] font-semibold tracking-[0.2em] uppercase text-zinc-300">
+                    CORE STACK
+                  </span>
+                  <span className="text-zinc-600 font-mono text-[12px] hidden sm:inline select-none">/</span>
+                </div>
+
+                <div className="flex items-center flex-wrap gap-2">
+                  {CORE_STACK_ITEMS.map((item) => (
+                    <span
+                      key={item}
+                      className="group inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/[0.025] hover:bg-white/[0.06] border border-white/[0.06] hover:border-emerald-500/35 text-[12.5px] sm:text-[13px] font-mono text-zinc-200 hover:text-white transition-all duration-200 cursor-default"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400/50 group-hover:bg-emerald-400 group-hover:shadow-[0_0_6px_rgba(52,211,153,0.8)] transition-all duration-200" />
+                      <span>{item}</span>
+                    </span>
                   ))}
                 </div>
               </div>
 
-              {/* Right: Proficiency Legend (Contained inside the band) */}
+              {/* Right: Proficiency Legend (Contained inside the band with crisp hairline divider) */}
               <div
-                className="flex items-center gap-3.5 text-[11.5px] font-mono text-zinc-400 border-t lg:border-t-0 lg:border-l border-emerald-400/15 pt-2.5 lg:pt-0 lg:pl-5 flex-shrink-0"
+                className="relative z-10 flex items-center gap-4 text-[11px] sm:text-[11.5px] font-mono text-zinc-400 border-t lg:border-t-0 lg:border-l border-white/[0.08] pt-3.5 lg:pt-0 lg:pl-6 flex-shrink-0"
                 aria-label="Skill proficiency legend"
               >
-                <span className="text-zinc-400 font-mono tracking-wider text-[11.5px]">Level:</span>
+                <span className="text-zinc-500 font-mono tracking-widest text-[10.5px]">LEVEL:</span>
                 <div className="flex items-center gap-1.5" title="Daily: What I reach for by default">
-                  <span className="w-2 h-2 rounded-full bg-[var(--accent,#78A88B)]" />
+                  <span className="w-2 h-2 rounded-full bg-[var(--accent,#78A88B)] shadow-[0_0_6px_rgba(120,168,139,0.5)]" />
                   <span className="text-zinc-300">Daily</span>
                 </div>
                 <div className="flex items-center gap-1.5" title="Project: Used in a shipped project">
@@ -443,7 +458,7 @@ export default function Stack() {
                 </div>
                 <div className="flex items-center gap-1.5" title="Learning: Actively building depth">
                   <span className="w-2 h-2 rounded-full border border-zinc-500 bg-transparent" />
-                  <span className="text-zinc-300">Learning</span>
+                  <span className="text-zinc-400">Learning</span>
                 </div>
               </div>
             </div>
