@@ -1,71 +1,150 @@
-# Sameer Pandey — Personal Portfolio (Python Backend · AI)
+# Sameer Pandey — Developer Portfolio
 
-A premium, minimal black engineering portfolio built with Next.js (App Router), TypeScript, Tailwind CSS, Lenis, and GSAP. Designed to showcase real system architectures, high-concurrency Python pipelines, and multi-agent AI systems to technical recruiters and senior engineers.
+A personal portfolio built with Next.js 16, TypeScript, Tailwind CSS v4, GSAP, and Lenis smooth scrolling. Designed with a dark minimal aesthetic to showcase backend systems, AI workflows, and project architectures.
 
 ---
 
-## ⚡ Quick Start
+## Tech Stack
 
-```bash
-# Install dependencies
-npm install
+- **Framework**: Next.js 16 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v4
+- **Animation**: GSAP + ScrollTrigger
+- **Smooth Scroll**: Lenis
+- **Icons**: Lucide React + custom inline SVGs
+- **Fonts**: Ysabeau / Ysabeau Infant (local woff2) + Inter & JetBrains Mono
 
-# Start development server
-npm run dev
+---
 
-# Production build & type check
-npm run build
+## Getting Started
+
+### Prerequisites
+
+Make sure you have the following installed on your machine:
+
+- **Node.js**: `v18.18.0` or higher (`v20+` recommended)
+- **Package manager**: `npm` (bundled with Node), `pnpm`, or `yarn`
+- **Git**
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/sameerpandey17/portfolio-dev-.git
+   cd portfolio-dev-
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Start the local development server**
+   ```bash
+   npm run dev
+   ```
+
+4. **Open in browser**
+   Visit [http://localhost:3000](http://localhost:3000) to see the site running locally with hot reloading.
+
+---
+
+## Available Scripts
+
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Starts the Next.js development server on `localhost:3000` |
+| `npm run build` | Compiles an optimized production build and checks types |
+| `npm run start` | Runs the compiled production build locally |
+| `npm run lint` | Runs ESLint to check for code style and syntax issues |
+
+---
+
+## Making It Yours (Customization Guide)
+
+If you are using this codebase as a template for your own portfolio, most of what you need to change is located in a single configuration file:
+
+### 1. Update personal details and projects
+Open `src/data/content.ts`. This file acts as the single source of truth for:
+- Your name, role, bio, location, and social links (GitHub, LinkedIn, X, email).
+- Projects (titles, descriptions, problem-decision-result stories, tags, repository links).
+- Education, hackathon wins, and experience timeline items.
+- Tech stack categories and skills.
+
+### 2. Replace static assets in `/public`
+- **Profile Image**: Place your portrait in `public/` (e.g. `public/sameer-hd.jpg` or your own filename) and update the path in `src/data/content.ts` and `src/components/Hero.tsx`.
+- **Resume**: Replace `public/resume.pdf` with your own resume PDF.
+- **Favicon**: Replace `src/app/favicon.ico` with your custom icon.
+
+### 3. Update SEO metadata
+Edit `src/app/layout.tsx`, `src/app/robots.ts`, and `src/app/sitemap.ts` to replace `https://sameerpandey.dev` with your custom production domain and update metadata descriptions.
+
+---
+
+## Project Structure
+
+```text
+├── public/                     # Static assets (images, resume.pdf)
+├── src/
+│   ├── app/                    # Next.js App Router
+│   │   ├── favicon.ico
+│   │   ├── globals.css         # Theme tokens, custom animations & utilities
+│   │   ├── layout.tsx          # Root layout, metadata & font setup
+│   │   ├── opengraph-image.tsx # Dynamic social sharing image
+│   │   ├── page.tsx            # Main portfolio page entry point
+│   │   ├── robots.ts           # Search engine indexing rules
+│   │   └── sitemap.ts          # XML sitemap generator
+│   ├── components/             # UI components
+│   │   ├── Contact.tsx         # Contact links, copy email & footer
+│   │   ├── CustomCursor.tsx    # Interactive dot cursor
+│   │   ├── EngineeringNotes.tsx# Technical case studies & recruiter Q&A
+│   │   ├── Hero.tsx            # Hero typography, portrait & intro
+│   │   ├── ProjectArchitectures.tsx # Custom vector diagrams for projects
+│   │   ├── ScrollProgress.tsx  # Top scroll position indicator
+│   │   ├── SmoothScroll.tsx    # Lenis inertia scroll engine
+│   │   ├── Stack.tsx           # Categorized tech stack grid
+│   │   ├── StickyIdentityNav.tsx # Header navigation & mobile drawer
+│   │   ├── Timeline.tsx        # Education & career timeline
+│   │   ├── Work.tsx            # Interactive project showcase
+│   │   └── WorkTransition.tsx  # Visual section transition
+│   ├── data/
+│   │   └── content.ts          # Central data source for all site content
+│   └── fonts/                  # Self-hosted variable woff2 fonts
+├── .gitignore
+├── eslint.config.mjs
+├── next.config.ts
+├── package.json
+└── tsconfig.json
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the live app.
-
 ---
 
-## 🎨 Design System & Aesthetic
+## Deployment
 
-- **Theme**: "Premium Minimal Black"
-- **Palette**:
-  - Background: `#0A0A0A`
-  - Raised Surface: `#111111`
-  - Card Surface: `#141414`
-  - Hairline Border: `rgba(255, 255, 255, 0.08)`
-  - Strong Border: `rgba(255, 255, 255, 0.16)`
-  - High-Contrast Text: `#EDEDED`
-  - Secondary Text: `#9A9A9A`
-  - Tertiary / Mono Meta: `#6B6B6B`
-  - Status Indicator: `#3DDC84` (availability dot)
-- **Subtle Depth**: 2.8% SVG noise grain overlay and faint radial highlight.
-- **Typography**: Neo-grotesk display (`Instrument Sans`) paired with monospace metadata (`JetBrains Mono`). Fluid typography scale via `clamp()`.
-- **Motion & Scroll**: Lenis smooth inertia scroll synchronized with GSAP ticker and ScrollTrigger, masked line reveals, Andrew McCarthy character scramble reveal, sticky stacking project cards, and full `prefers-reduced-motion` compliance.
+### Vercel (Recommended)
 
----
+The easiest way to deploy this site is with Vercel:
 
-## 🗂️ Single Source of Truth (`src/data/content.ts`)
+1. Push your code to GitHub.
+2. Go to [vercel.com](https://vercel.com) and import your repository.
+3. Keep default settings (`Framework Preset: Next.js`). No environment variables are required.
+4. Click **Deploy**.
 
-All personal details, project problem/decision/results, milestones, skills, and FAQ entries are configured in a single typed file:
-
-```typescript
-// Edit this file to update copy without touching UI components:
-src/data/content.ts
-```
-
----
-
-## 📋 TODO Checklist for Sameer
-
-Before final public launch, review and supply the following assets:
-
-- [ ] **Real Portrait**: Replace `/public/me-placeholder.jpg` with your personal high-resolution studio or casual portrait.
-- [ ] **Resume PDF**: Verify `/public/resume.pdf` has your latest formatting, links, and contact information.
-- [ ] **Cloud Demo URLs**: When staging cloud instances for VisionLink (WebSockets/GPU) or AIVOA (voice gateway) are deployed, add their URLs to `liveUrl` in `src/data/content.ts`.
-- [ ] **Project Videos/GIFs**: Optionally add short screen recordings of VisionLink pose tracking and AIVOA conversations.
-- [ ] **DNS & Domain**: Configure your custom domain (`sameerpandey.dev`) on Vercel.
-
----
-
-## 🚀 Deployment to Vercel
-
+Alternatively, deploy directly from the CLI:
 ```bash
 npx vercel
 ```
-Or connect your GitHub repository directly to Vercel. Builds with zero environment variables required.
+
+### Self-Hosted / Node Server
+
+You can also run it on any server with Node.js:
+```bash
+npm run build
+npm run start
+```
+
+---
+
+## License
+
+MIT License. Feel free to use this project as inspiration or as a starter for your own portfolio.
