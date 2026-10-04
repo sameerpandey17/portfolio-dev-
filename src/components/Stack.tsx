@@ -322,21 +322,8 @@ export default function Stack() {
       id="stack"
       ref={sectionRef}
       aria-label="Technical capabilities and systems capability map"
-      className="relative bg-[var(--bg,#0B0C0B)] border-t border-white/[0.06] overflow-hidden scroll-mt-24 md:scroll-mt-28 py-16 md:py-24"
+      className="relative bg-transparent border-t border-white/[0.06] overflow-hidden scroll-mt-24 md:scroll-mt-28 py-16 md:py-24"
     >
-      {/* Barely visible blueprint grid */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.012) 1px, transparent 1px)," +
-            "linear-gradient(90deg, rgba(255,255,255,0.012) 1px, transparent 1px)",
-          backgroundSize: "64px 64px",
-          zIndex: 0,
-        }}
-      />
-
       {/* ── Main Symmetric Container (Centered with equal left and right margins) ── */}
       <div
         className="relative z-10 w-full"

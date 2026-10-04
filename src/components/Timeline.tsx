@@ -179,7 +179,7 @@ export default function Timeline() {
       aria-label="Education and Engineering Milestones"
       className="scroll-mt-20"
       style={{
-        background: "var(--bg, #0B0C0B)",
+        background: "transparent",
         padding: "clamp(80px,12vh,140px) clamp(24px,5vw,80px)",
         position: "relative",
         borderTop: "1px solid rgba(255,255,255,0.06)",

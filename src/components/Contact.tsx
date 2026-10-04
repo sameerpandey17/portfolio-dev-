@@ -22,7 +22,7 @@ export default function Contact() {
       id="contact"
       aria-label="Contact and closing statement"
       style={{
-        background: "var(--bg, #0B0C0B)",
+        background: "transparent",
         borderTop: "1px solid rgba(255,255,255,0.06)",
         position: "relative",
       }}

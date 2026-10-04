@@ -130,7 +130,7 @@ export default function EngineeringNotes() {
       id="insights"
       aria-label="Hard-earned project insights and recruiter notes"
       style={{
-        background: "var(--bg, #0B0C0B)",
+        background: "transparent",
         padding: "clamp(64px,10vh,120px) clamp(24px,5vw,80px)",
         borderTop: "1px solid rgba(255,255,255,0.06)",
         position: "relative",

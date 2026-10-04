@@ -21,15 +21,29 @@ export default function Home() {
       {/* Sticky Identity Nav (Scrolled Desktop & Mobile) */}
       <StickyIdentityNav />
 
-      {/* Main Semantic Landmark */}
-      <main id="main-content" className="relative z-10">
-        <Hero />
-        <WorkTransition />
-        <Work />
-        <Timeline />
-        <Stack />
-        <EngineeringNotes />
-        <Contact />
+      {/* Main Semantic Landmark with full-length drafting grid */}
+      <main id="main-content" className="relative z-10 overflow-hidden bg-[var(--bg,#0B0C0B)]">
+        {/* Full-page continuous blueprint drafting grid */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 z-0"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,0.014) 1px, transparent 1px)," +
+              "linear-gradient(90deg, rgba(255,255,255,0.014) 1px, transparent 1px)",
+            backgroundSize: "64px 64px",
+          }}
+        />
+
+        <div className="relative z-10">
+          <Hero />
+          <WorkTransition />
+          <Work />
+          <Timeline />
+          <Stack />
+          <EngineeringNotes />
+          <Contact />
+        </div>
       </main>
     </>
   );

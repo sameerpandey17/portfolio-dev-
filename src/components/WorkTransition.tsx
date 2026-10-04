@@ -69,7 +69,7 @@ export default function WorkTransition() {
       ref={sectionRef}
       aria-label="Chapter transition: Selected Work"
       style={{
-        background: "var(--bg, #0B0C0B)",
+        background: "transparent",
         padding: "clamp(60px,10vh,120px) clamp(24px,5vw,80px)",
         borderBottom: "1px solid rgba(255,255,255,0.07)",
       }}

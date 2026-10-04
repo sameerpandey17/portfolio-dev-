@@ -512,23 +512,8 @@ export default function Work() {
       id="work"
       ref={sectionRef}
       aria-label="Selected engineering projects"
-      style={{ background: "var(--bg, #0B0C0B)", position: "relative" }}
+      style={{ background: "transparent", position: "relative" }}
     >
-      {/* Blueprint grid */}
-      <div
-        aria-hidden="true"
-        style={{
-          position: "absolute",
-          inset: 0,
-          pointerEvents: "none",
-          backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.012) 1px,transparent 1px)," +
-            "linear-gradient(90deg,rgba(255,255,255,0.012) 1px,transparent 1px)",
-          backgroundSize: "64px 64px",
-          zIndex: 0,
-        }}
-      />
-
       <div
         className="relative z-10"
         style={{ maxWidth: 1440, margin: "0 auto", padding: "0 clamp(24px,5vw,80px)" }}
