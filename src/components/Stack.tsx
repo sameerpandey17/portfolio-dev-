@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import {
@@ -12,6 +12,91 @@ import {
 } from "@/data/content";
 
 gsap.registerPlugin(ScrollTrigger);
+
+/* ─── Core Stack Pills with Authentic Brand Logos ──────────────────────────── */
+const CORE_PILL_LIST = [
+  {
+    name: "Python",
+    icon: (
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" className="flex-shrink-0" aria-hidden="true">
+        <path d="M11.91 2C6.88 2 7.2 4.18 7.2 4.18L7.22 6.45H12.1V7.17H5.25C5.25 7.17 2 6.8 2 11.83C2 16.86 4.84 16.63 4.84 16.63H6.53V14.24C6.53 11.45 8.94 11.45 8.94 11.45H13.81C16.32 11.45 16.6 9.17 16.6 9.17V4.37C16.6 4.37 16.92 2 11.91 2ZM9.47 3.48C10.08 3.48 10.57 3.97 10.57 4.58C10.57 5.19 10.08 5.68 9.47 5.68C8.86 5.68 8.37 5.19 8.37 4.58C8.37 3.97 8.86 3.48 9.47 3.48Z" fill="#3776AB"/>
+        <path d="M12.09 22C17.12 22 16.8 19.82 16.8 19.82L16.78 17.55H11.9V16.83H18.75C18.75 16.83 22 17.2 22 12.17C22 7.14 19.16 7.37 19.16 7.37H17.47V9.76C17.47 12.55 15.06 12.55 15.06 12.55H10.19C7.68 12.55 7.4 14.83 7.4 14.83V19.63C7.4 19.63 7.08 22 12.09 22ZM14.53 20.52C13.92 20.52 13.43 20.03 13.43 19.42C13.43 18.81 13.92 18.32 14.53 18.32C15.14 18.32 15.63 18.81 15.63 19.42C15.63 20.03 15.14 20.52 14.53 20.52Z" fill="#FFD43B"/>
+      </svg>
+    ),
+  },
+  {
+    name: "TypeScript",
+    icon: (
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" className="flex-shrink-0" aria-hidden="true">
+        <rect width="24" height="24" rx="4" fill="#3178C6"/>
+        <path d="M11.75 9H6.25V10.75H8.1V18H9.9V10.75H11.75V9Z" fill="white"/>
+        <path d="M13.25 15.6C13.8 16.1 14.55 16.45 15.4 16.45C16.5 16.45 17.15 15.9 17.15 15.1C17.15 13.2 13.5 13.7 13.5 11.2C13.5 9.8 14.6 8.8 16.2 8.8C17.1 8.8 17.9 9.1 18.5 9.55L17.9 11C17.4 10.65 16.8 10.4 16.15 10.4C15.2 10.4 14.7 10.9 14.7 11.55C14.7 13.3 18.35 12.75 18.35 15.35C18.35 16.85 17.2 18 15.35 18C14.3 18 13.3 17.55 12.65 16.95L13.25 15.6Z" fill="white"/>
+      </svg>
+    ),
+  },
+  {
+    name: "JavaScript",
+    icon: (
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" className="flex-shrink-0" aria-hidden="true">
+        <rect width="24" height="24" rx="4" fill="#F7DF1E"/>
+        <path d="M7 17.2C7.6 17.7 8.35 18 9.2 18C10.7 18 11.65 17.15 11.65 15.3V9.5H9.95V15.25C9.95 16.1 9.5 16.45 8.85 16.45C8.3 16.45 7.75 16.2 7.35 15.8L7 17.2Z" fill="#1A1A1A"/>
+        <path d="M13.25 15.6C13.8 16.1 14.55 16.45 15.4 16.45C16.5 16.45 17.15 15.9 17.15 15.1C17.15 13.2 13.5 13.7 13.5 11.2C13.5 9.8 14.6 8.8 16.2 8.8C17.1 8.8 17.9 9.1 18.5 9.55L17.9 11C17.4 10.65 16.8 10.4 16.15 10.4C15.2 10.4 14.7 10.9 14.7 11.55C14.7 13.3 18.35 12.75 18.35 15.35C18.35 16.85 17.2 18 15.35 18C14.3 18 13.3 17.55 12.65 16.95L13.25 15.6Z" fill="#1A1A1A"/>
+      </svg>
+    ),
+  },
+  {
+    name: "React / Next.js",
+    icon: (
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" className="flex-shrink-0" aria-hidden="true">
+        <ellipse cx="12" cy="12" rx="4" ry="10" transform="rotate(30 12 12)" stroke="#00D8FF" strokeWidth="1.5"/>
+        <ellipse cx="12" cy="12" rx="4" ry="10" transform="rotate(90 12 12)" stroke="#00D8FF" strokeWidth="1.5"/>
+        <ellipse cx="12" cy="12" rx="4" ry="10" transform="rotate(150 12 12)" stroke="#00D8FF" strokeWidth="1.5"/>
+        <circle cx="12" cy="12" r="2" fill="#00D8FF"/>
+      </svg>
+    ),
+  },
+  {
+    name: "FastAPI",
+    icon: (
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" className="flex-shrink-0" aria-hidden="true">
+        <circle cx="12" cy="12" r="11" fill="#059669"/>
+        <path d="M13 3L6 13H12L11 21L18 11H12L13 3Z" fill="white"/>
+      </svg>
+    ),
+  },
+  {
+    name: "PostgreSQL",
+    icon: (
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" className="flex-shrink-0" aria-hidden="true">
+        <path d="M12.012 2c-3.136 0-5.836 1.76-7.14 4.354C4.33 6.136 3.784 6 3.204 6 1.434 6 0 7.434 0 9.204c0 1.464.98 2.697 2.324 3.064-.08.43-.124.877-.124 1.332 0 4.639 3.761 8.4 8.4 8.4.52 0 1.026-.048 1.516-.14.62.705 1.53 1.14 2.532 1.14 1.88 0 3.4-1.52 3.4-3.4 0-.3-.04-.59-.115-.867C20.91 17.3 22.8 14.86 22.8 12c0-5.523-4.836-10-10.788-10zm-1.412 2.8c4.64 0 8.4 3.76 8.4 8.4 0 2.22-.86 4.24-2.28 5.75-.41-.53-.99-.91-1.67-1.07.24-.72.38-1.49.38-2.28 0-3.98-3.22-7.2-7.2-7.2-.66 0-1.3.09-1.9.26C8.5 6.33 10.16 4.8 12.012 4.8z" fill="#336791"/>
+      </svg>
+    ),
+  },
+  {
+    name: "LangGraph",
+    icon: (
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2DD4BF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0" aria-hidden="true">
+        <circle cx="6" cy="6" r="2.5" fill="#2DD4BF" stroke="none" />
+        <circle cx="18" cy="6" r="2.5" fill="#2DD4BF" stroke="none" />
+        <circle cx="12" cy="18" r="2.5" fill="#2DD4BF" stroke="none" />
+        <line x1="8.2" y1="6" x2="15.8" y2="6" stroke="#2DD4BF" strokeWidth="1.5" />
+        <line x1="7.2" y1="8" x2="10.8" y2="16" stroke="#2DD4BF" strokeWidth="1.5" />
+        <line x1="16.8" y1="8" x2="13.2" y2="16" stroke="#2DD4BF" strokeWidth="1.5" />
+      </svg>
+    ),
+  },
+  {
+    name: "Git",
+    icon: (
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#22C55E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0" aria-hidden="true">
+        <line x1="6" y1="3" x2="6" y2="15" />
+        <circle cx="18" cy="6" r="3" fill="#22C55E" stroke="none" />
+        <circle cx="6" cy="18" r="3" fill="#22C55E" stroke="none" />
+        <path d="M18 9a9 9 0 0 1-9 9" />
+      </svg>
+    ),
+  },
+];
 
 /* ─── Project Anchor Mapping ──────────────────────────────────────────────── */
 const PROJECT_ANCHORS: Record<string, string> = {
@@ -245,6 +330,7 @@ function LevelBadge({ level }: { level: SkillLevel }) {
 
 /* ─── Main Stack Component ────────────────────────────────────────────────── */
 export default function Stack() {
+  const [activePill, setActivePill] = useState<string>("Python");
   const sectionRef = useRef<HTMLElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const coreStripRef = useRef<HTMLDivElement>(null);
@@ -388,64 +474,63 @@ export default function Stack() {
               </div>
             </div>
 
-            {/* ── CORE STACK HIGHLIGHTED DOCK (Generous container dimensions and spacing) ── */}
+            {/* ── CORE STACK DOCK (Compact horizontal pill bar matching reference shape & size) ── */}
             <div
               ref={coreStripRef}
               style={{
                 marginTop: 0,
-                marginBottom: "clamp(56px, 6.5vw, 92px)",
+                marginBottom: "clamp(48px, 5.5vw, 80px)",
               }}
-              className="px-6 py-7 sm:px-9 sm:py-8 md:px-11 md:py-9 rounded-2xl bg-[#0D0F0E]/90 backdrop-blur-xl border border-white/[0.08] shadow-[0_16px_48px_-12px_rgba(0,0,0,0.7),inset_0_1px_0_0_rgba(255,255,255,0.06)] flex flex-col lg:flex-row lg:items-center justify-between gap-6 lg:gap-8 relative overflow-hidden"
+              className="w-full rounded-2xl md:rounded-full bg-[#0D0F0E]/85 backdrop-blur-xl border border-white/[0.08] px-4 sm:px-6 py-2.5 sm:py-3 shadow-[0_12px_32px_-8px_rgba(0,0,0,0.6)] flex items-center justify-between gap-3 sm:gap-4 overflow-x-auto scrollbar-none relative"
             >
-              {/* Subtle ambient light gradient in background */}
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute -top-24 -left-24 w-72 h-72 bg-emerald-500/[0.045] rounded-full blur-3xl"
-              />
-
-              {/* Left: Core stack pill list */}
-              <div className="relative z-10 flex items-center flex-wrap gap-4 sm:gap-5">
-                <div className="flex items-center gap-3.5 flex-shrink-0 select-none">
-                  <span className="relative flex h-3 w-3">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60" />
-                    <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.95)]" />
-                  </span>
-                  <span className="font-mono text-[13px] sm:text-[14px] font-semibold tracking-[0.22em] uppercase text-zinc-300">
-                    CORE STACK
-                  </span>
-                  <span className="text-zinc-600 font-mono text-[16px] hidden sm:inline select-none">/</span>
-                </div>
-
-                <div className="flex items-center flex-wrap gap-2.5 sm:gap-3">
-                  {CORE_STACK_ITEMS.map((item) => (
-                    <span
-                      key={item}
-                      className="group inline-flex items-center gap-2.5 px-4 py-2.5 sm:px-4.5 sm:py-3 rounded-xl bg-white/[0.03] hover:bg-white/[0.07] border border-white/[0.07] hover:border-emerald-500/40 text-[14px] sm:text-[15px] md:text-[15.5px] font-mono font-medium text-zinc-200 hover:text-white transition-all duration-200 shadow-sm cursor-default"
-                    >
-                      <span className="w-2 h-2 rounded-full bg-emerald-400/60 group-hover:bg-emerald-400 group-hover:shadow-[0_0_8px_rgba(52,211,153,0.9)] transition-all duration-200" />
-                      <span>{item}</span>
-                    </span>
-                  ))}
-                </div>
+              {/* Left: Glowing dot + CORE STACK / */}
+              <div className="flex items-center gap-2.5 sm:gap-3 flex-shrink-0 select-none">
+                <span className="w-2.5 h-2.5 rounded-full bg-[var(--accent,#78A88B)] shadow-[0_0_10px_rgba(120,168,139,0.95)]" />
+                <span className="font-mono text-[11.5px] sm:text-[12.5px] font-semibold tracking-[0.18em] uppercase text-zinc-200">
+                  CORE STACK
+                </span>
+                <span className="text-zinc-600 font-mono text-[13px] sm:text-[14px]">/</span>
               </div>
 
-              {/* Right: Proficiency Legend (Contained inside the band with crisp hairline divider) */}
+              {/* Center: Tech Pills */}
+              <div className="flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
+                {CORE_PILL_LIST.map((pill) => {
+                  const isActive = activePill === pill.name;
+                  return (
+                    <button
+                      key={pill.name}
+                      type="button"
+                      onClick={() => setActivePill(pill.name)}
+                      className={`group inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-[12.5px] sm:text-[13px] font-sans font-medium transition-all duration-200 select-none cursor-pointer ${
+                        isActive
+                          ? "bg-[rgba(120,168,139,0.08)] border border-[var(--accent,#78A88B)]/80 text-white shadow-[0_0_14px_rgba(120,168,139,0.25)]"
+                          : "bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.08] hover:border-white/20 text-zinc-300 hover:text-white"
+                      }`}
+                    >
+                      {pill.icon}
+                      <span>{pill.name}</span>
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* Right: LEVEL Legend with circular outline indicators */}
               <div
-                className="relative z-10 flex items-center gap-5 sm:gap-6 text-[12.5px] sm:text-[13.5px] font-mono text-zinc-400 border-t lg:border-t-0 lg:border-l border-white/[0.08] pt-4.5 lg:pt-0 lg:pl-8 xl:pl-10 flex-shrink-0"
+                className="flex items-center gap-3 sm:gap-4 text-[12px] font-mono text-zinc-400 flex-shrink-0 select-none pl-1"
                 aria-label="Skill proficiency legend"
               >
-                <span className="text-zinc-500 font-mono tracking-widest text-[11.5px]">LEVEL:</span>
-                <div className="flex items-center gap-2" title="Daily: What I reach for by default">
-                  <span className="w-2.5 h-2.5 rounded-full bg-[var(--accent,#78A88B)] shadow-[0_0_8px_rgba(120,168,139,0.5)]" />
-                  <span className="text-zinc-300">Daily</span>
+                <span className="text-zinc-500 font-mono tracking-widest text-[11px]">LEVEL:</span>
+                <div className="flex items-center gap-1.5" title="Daily: What I reach for by default">
+                  <span className="w-3.5 h-3.5 rounded-full border-2 border-[var(--accent,#78A88B)] bg-transparent flex items-center justify-center flex-shrink-0" />
+                  <span className="text-zinc-200 font-sans text-[12px]">Daily</span>
                 </div>
-                <div className="flex items-center gap-2" title="Project: Used in a shipped project">
-                  <span className="w-2.5 h-2.5 rounded-full bg-zinc-300" />
-                  <span className="text-zinc-300">Project</span>
+                <div className="flex items-center gap-1.5" title="Project: Used in a shipped project">
+                  <span className="w-3.5 h-3.5 rounded-full border border-zinc-500 bg-transparent flex items-center justify-center flex-shrink-0" />
+                  <span className="text-zinc-400 font-sans text-[12px]">Project</span>
                 </div>
-                <div className="flex items-center gap-2" title="Learning: Actively building depth">
-                  <span className="w-2.5 h-2.5 rounded-full border border-zinc-500 bg-transparent" />
-                  <span className="text-zinc-400">Learning</span>
+                <div className="flex items-center gap-1.5" title="Learning: Actively building depth">
+                  <span className="w-3.5 h-3.5 rounded-full border border-zinc-600 bg-transparent flex items-center justify-center flex-shrink-0" />
+                  <span className="text-zinc-500 font-sans text-[12px]">Learning</span>
                 </div>
               </div>
             </div>
