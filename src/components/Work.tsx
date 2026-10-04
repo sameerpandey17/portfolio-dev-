@@ -43,14 +43,14 @@ const AIVOA_OVERRIDE = {
 
 /* ─── NutriSync corrected content ──────────────────────────────── */
 const NUTRISYNC_OVERRIDE = {
-  outcome: "Custom Reinforcement Learning environment in OpenAI Gym for sequential meal planning under budget constraints.",
-  roleSentence: "Designed the OpenAI Gym environment, 50-ingredient Indian food dataset, and Gradio exploration interface.",
+  outcome: "Custom Reinforcement Learning environment in OpenAI Gym for sequential meal planning under budget constraints. Deployed on Hugging Face with an interactive Gradio UI.",
+  roleSentence: "Designed the OpenAI Gym environment, 50-ingredient Indian food dataset, and deployed an interactive Gradio UI on Hugging Face.",
   story: {
     problem: "Standard RL reward functions optimizing solely for calories triggered reward hacking: consuming pure oil and sugar at every step.",
     decision: "Redesigned the reward function with penalties for allergen usage, budget violations, and dietary variety floors across 50 Indian ingredients.",
-    result: "Agent converged on balanced, realistic meal sequences with three difficulty tiers.",
+    result: "Agent converged on balanced, realistic meal sequences with three difficulty tiers. Deployed to Hugging Face with a live Gradio UI so users and evaluators can interact with the environment.",
   },
-  benchmarkNote: "Includes 50-ingredient Indian food dataset and interactive Gradio interface.",
+  benchmarkNote: "Deployed on Hugging Face with an interactive Gradio UI and 50-ingredient Indian food dataset.",
 };
 
 /* ─── Architecture dispatcher ─────────────────────────────────── */
@@ -88,6 +88,9 @@ const HIGHLIGHT_TERMS: Record<string, string[]> = {
     "Reinforcement Learning environment",
     "shaped rewards",
     "sequential meal planning",
+    "Deployed on Hugging Face",
+    "interactive Gradio UI",
+    "Gradio UI",
   ],
 };
 

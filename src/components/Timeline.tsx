@@ -54,9 +54,10 @@ const MILESTONES: Milestone[] = [
     badge: "PROJECTS",
     title: "NutriSync RL & CaloRupee",
     org: "Reinforcement Learning & Web Apps",
-    copy: "Created NutriSync, an OpenAI Gym environment with shaped rewards for sequential meal planning, and CaloRupee, an AI budget meal planner with dual-provider failover.",
+    copy: "Created NutriSync, an OpenAI Gym environment deployed on Hugging Face with an interactive Gradio UI for sequential meal planning, and CaloRupee, an AI budget meal planner with dual-provider failover.",
     highlights: [
       "OpenAI Gym environment",
+      "deployed on Hugging Face with an interactive Gradio UI",
       "shaped rewards for sequential meal planning",
       "AI budget meal planner",
       "dual-provider failover",

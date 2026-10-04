@@ -99,7 +99,7 @@ export const PROJECTS: Project[] = [
         "Zero-drop conversation resilience during provider failures. Graph-based state machine allows adding domain-specific agents as modular nodes without refactoring core routing.",
     },
     architectureSvgType: "aivoa",
-    githubUrl: "https://github.com/sameerpandey17/AIVOA",
+    githubUrl: "https://github.com/sameerpandey17/deviation-bot",
     liveUrl: null,
     featured: true,
     benchmarkNote: "Automatic fallback to secondary LLM pool keeps sessions running if a provider drops.",
@@ -132,23 +132,23 @@ export const PROJECTS: Project[] = [
     title: "NutriSync",
     year: "2026",
     outcome:
-      "Reinforcement Learning environment in OpenAI Gym for sequential meal planning with shaped rewards.",
+      "Reinforcement Learning environment in OpenAI Gym for sequential meal planning with shaped rewards. Deployed on Hugging Face with an interactive Gradio UI.",
     roleSentence:
-      "Created the OpenAI Gym environment, 50-ingredient Indian food dataset, and Gradio interface.",
-    tags: ["OpenAI Gym", "Reinforcement Learning", "Python", "Gradio", "OpenEnv"],
+      "Created the OpenAI Gym environment, 50-ingredient Indian food dataset, and deployed an interactive Gradio UI on Hugging Face.",
+    tags: ["OpenAI Gym", "Reinforcement Learning", "Python", "Gradio", "Hugging Face", "OpenEnv"],
     story: {
       problem:
         "A naive reward function that only maximized caloric and protein totals triggered rapid reward hacking: the agent converged on consuming pure cooking oil and sugar at every step: mathematically optimal, practically useless.",
       decision:
         "Redesigned the objective function with multi-factor reward shaping: added a diversity penalty, micronutrient requirement floors, satiety decay, and a monotony penalty. Built an interactive Gradio visualizer to audit policy evolution over training episodes.",
       result:
-        "The agent converged to healthy, culturally realistic meal sequences. Demonstrated that objective specification and reward surface design are the true bottlenecks in goal-directed AI systems.",
+        "The agent converged to healthy, culturally realistic meal sequences. Deployed on Hugging Face with an interactive Gradio UI so anyone can test and interact with policy trajectories in real time.",
     },
     architectureSvgType: "nutrisync",
-    githubUrl: "https://github.com/sameerpandey17/NutriSync",
+    githubUrl: "https://github.com/sameerpandey17/nutrisync-openenv",
     liveUrl: null,
     featured: false,
-    benchmarkNote: "Multi-factor reward function prevents the agent from finding degenerate eating strategies.",
+    benchmarkNote: "Deployed on Hugging Face with an interactive Gradio UI and 50-ingredient Indian food dataset.",
   },
 ];
 
