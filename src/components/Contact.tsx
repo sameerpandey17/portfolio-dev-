@@ -115,7 +115,7 @@ export default function Contact() {
               className="w-full origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out"
               style={{
                 height: 1,
-                background: "var(--accent, #78A88B)",
+                background: "var(--accent, #C9A84C)",
                 display: "block",
                 marginTop: 4,
               }}
@@ -135,7 +135,7 @@ export default function Contact() {
                 fontSize: 12.5,
                 letterSpacing: "0.12em",
                 textTransform: "uppercase",
-                color: copied ? "var(--accent, #78A88B)" : "#A1A1AA",
+                color: copied ? "var(--accent, #C9A84C)" : "#A1A1AA",
                 transition: "color 0.2s ease",
               }}
             >
@@ -224,7 +224,7 @@ export default function Contact() {
               fontSize: 13.5,
               letterSpacing: "0.12em",
               textTransform: "uppercase",
-              color: "var(--accent, #78A88B)",
+              color: "var(--accent, #C9A84C)",
               textDecoration: "none",
               transition: "opacity 0.2s ease",
             }}

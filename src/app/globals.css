@@ -29,12 +29,12 @@
   --text-tertiary:  #777774;
   --text-technical: #8A8A86;
 
-  /* --- Accent: Secondary Muted Green (#78A88B) --- */
-  --accent:         #78A88B;
-  --accent-dim:     rgba(120, 168, 139, 0.14);
+  /* --- Accent: Warm Yellow (#C9A84C) --- */
+  --accent:         #C9A84C;
+  --accent-dim:     rgba(201, 168, 76, 0.14);
   /* Alias */
-  --accent-green:         #78A88B;
-  --accent-green-glow:    rgba(120, 168, 139, 0.2);
+  --accent-green:         #C9A84C;
+  --accent-green-glow:    rgba(201, 168, 76, 0.2);
 
   /* --- Font Families --- */
   --font-display: var(--font-display), "Ysabeau Infant", "Georgia", serif;        /* Ysabeau Infant */
@@ -539,8 +539,8 @@ html.lenis, html.lenis body { height: auto; }
 
 .custom-cursor-dot.is-hovering .custom-cursor-inner {
   transform: translate(-50%, -50%) scale(4.8);
-  background: rgba(111, 175, 135, 0.12);
-  border-color: rgba(111, 175, 135, 0.55);
+  background: rgba(201, 168, 76, 0.16);
+  border-color: rgba(201, 168, 76, 0.65);
   backdrop-filter: blur(2px);
 }
 
@@ -656,14 +656,14 @@ html.lenis, html.lenis body { height: auto; }
 .recruiter-highlight {
   color: var(--text-primary, #E8E5DD);
   text-decoration: underline;
-  text-decoration-color: rgba(120, 168, 139, 0.45);
+  text-decoration-color: rgba(201, 168, 76, 0.5);
   text-decoration-thickness: 1.5px;
   text-underline-offset: 4px;
   transition: text-decoration-color 0.25s ease, color 0.25s ease;
 }
 
 .recruiter-highlight:hover {
-  text-decoration-color: var(--accent, #78A88B);
+  text-decoration-color: var(--accent, #C9A84C);
   color: #FFFFFF;
 }
 

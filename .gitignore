@@ -46,6 +46,7 @@ next-env.d.ts
 # agents, skills & local development tooling
 .agents/
 skills/
+skills-lock.json
 .antigravity/
 .antigravity-ide/
 .claude/

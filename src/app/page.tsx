@@ -5,9 +5,7 @@ import StickyIdentityNav from "@/components/StickyIdentityNav";
 import Hero from "@/components/Hero";
 import WorkTransition from "@/components/WorkTransition";
 import Work from "@/components/Work";
-import Timeline from "@/components/Timeline";
 import Stack from "@/components/Stack";
-import EngineeringNotes from "@/components/EngineeringNotes";
 import Contact from "@/components/Contact";
 
 export default function Home() {
@@ -39,9 +37,7 @@ export default function Home() {
           <Hero />
           <WorkTransition />
           <Work />
-          <Timeline />
           <Stack />
-          <EngineeringNotes />
           <Contact />
         </div>
       </main>

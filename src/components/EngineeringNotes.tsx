@@ -194,7 +194,7 @@ export default function EngineeringNotes() {
                         fontFamily: "var(--font-mono), monospace",
                         fontSize: 12.5,
                         letterSpacing: "0.14em",
-                        color: "var(--accent, #78A88B)",
+                        color: "var(--accent, #C9A84C)",
                       }}
                     >
                       INSIGHT {item.num}
@@ -288,7 +288,7 @@ export default function EngineeringNotes() {
                           fontFamily: "var(--font-mono), monospace",
                           fontSize: 13,
                           letterSpacing: "0.14em",
-                          color: isOpen ? "var(--accent, #78A88B)" : "#A1A1AA",
+                          color: isOpen ? "var(--accent, #C9A84C)" : "#A1A1AA",
                           transition: "color 0.2s ease",
                         }}
                       >
@@ -315,7 +315,7 @@ export default function EngineeringNotes() {
                         fontFamily: "var(--font-mono), monospace",
                         fontSize: 20,
                         lineHeight: 1,
-                        color: isOpen ? "var(--accent, #78A88B)" : "#A1A1AA",
+                        color: isOpen ? "var(--accent, #C9A84C)" : "#A1A1AA",
                         transform: isOpen ? "rotate(45deg)" : "rotate(0deg)",
                         transition: "transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease",
                         display: "inline-block",

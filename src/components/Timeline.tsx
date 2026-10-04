@@ -76,7 +76,7 @@ function HighlightedMilestoneCopy({ copy, highlights }: { copy: string; highligh
         highlights.some((h) => h.toLowerCase() === part.toLowerCase()) ? (
           <span
             key={i}
-            className="text-[#E8E5DD] font-normal underline decoration-[var(--accent,#78A88B)]/50 decoration-1 underline-offset-4 hover:decoration-[var(--accent,#78A88B)] transition-colors"
+            className="text-[#E8E5DD] font-normal underline decoration-[var(--accent,#C9A84C)]/50 decoration-1 underline-offset-4 hover:decoration-[var(--accent,#C9A84C)] transition-colors"
           >
             {part}
           </span>
@@ -193,7 +193,7 @@ export default function Timeline() {
               fontFamily: "var(--font-mono), monospace",
               fontSize: 12,
               letterSpacing: "0.18em",
-              color: "var(--accent, #78A88B)",
+              color: "var(--accent, #C9A84C)",
               textTransform: "uppercase",
               display: "block",
               marginBottom: 14,
@@ -250,7 +250,7 @@ export default function Timeline() {
               style={{
                 width: "100%",
                 height: "100%",
-                background: "var(--accent, #78A88B)",
+                background: "var(--accent, #C9A84C)",
                 transformOrigin: "top center",
                 transform: "scaleY(0)",
               }}
@@ -301,7 +301,7 @@ export default function Timeline() {
                     width: 8,
                     height: 8,
                     borderRadius: "50%",
-                    background: idx === 0 ? "var(--accent, #78A88B)" : "rgba(255,255,255,0.25)",
+                    background: idx === 0 ? "var(--accent, #C9A84C)" : "rgba(255,255,255,0.25)",
                     border: "2px solid #0B0C0B",
                     zIndex: 2,
                   }}
@@ -314,7 +314,7 @@ export default function Timeline() {
                       fontFamily: "var(--font-mono), monospace",
                       fontSize: 13,
                       letterSpacing: "0.14em",
-                      color: idx === 0 ? "var(--accent, #78A88B)" : "#A1A1AA",
+                      color: idx === 0 ? "var(--accent, #C9A84C)" : "#A1A1AA",
                       display: "inline-block",
                       fontWeight: 500,
                     }}
@@ -334,7 +334,7 @@ export default function Timeline() {
                       width: 9,
                       height: 9,
                       borderRadius: "50%",
-                      background: idx === 0 ? "var(--accent, #78A88B)" : "rgba(255,255,255,0.25)",
+                      background: idx === 0 ? "var(--accent, #C9A84C)" : "rgba(255,255,255,0.25)",
                       border: "2px solid #0B0C0B",
                       boxShadow: idx === 0 ? "0 0 10px rgba(120,168,139,0.45)" : "none",
                       zIndex: 2,
@@ -355,7 +355,7 @@ export default function Timeline() {
                         fontFamily: "var(--font-mono), monospace",
                         fontSize: 12,
                         letterSpacing: "0.14em",
-                        color: idx === 0 ? "var(--accent, #78A88B)" : "#A1A1AA",
+                        color: idx === 0 ? "var(--accent, #C9A84C)" : "#A1A1AA",
                         fontWeight: 500,
                       }}
                     >
@@ -393,7 +393,7 @@ export default function Timeline() {
                   >
                     {item.title.startsWith("1st Place") ? (
                       <>
-                        <span className="underline decoration-[var(--accent,#78A88B)]/80 decoration-2 underline-offset-4 font-normal">
+                        <span className="underline decoration-[var(--accent,#C9A84C)]/80 decoration-2 underline-offset-4 font-normal">
                           1st Place
                         </span>
                         {item.title.slice(9)}

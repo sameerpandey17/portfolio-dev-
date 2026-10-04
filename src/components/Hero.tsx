@@ -393,8 +393,8 @@ export default function Hero() {
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.color = "#E8E5DD";
-                e.currentTarget.style.borderColor = "var(--accent, #78A88B)";
-                e.currentTarget.style.background = "rgba(120, 168, 139, 0.08)";
+                e.currentTarget.style.borderColor = "var(--accent, #C9A84C)";
+                e.currentTarget.style.background = "rgba(201, 168, 76, 0.09)";
                 e.currentTarget.style.transform = "translateY(-2px)";
               }}
               onMouseLeave={(e) => {
@@ -426,8 +426,8 @@ export default function Hero() {
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.color = "#E8E5DD";
-                e.currentTarget.style.borderColor = "var(--accent, #78A88B)";
-                e.currentTarget.style.background = "rgba(120, 168, 139, 0.08)";
+                e.currentTarget.style.borderColor = "var(--accent, #C9A84C)";
+                e.currentTarget.style.background = "rgba(201, 168, 76, 0.09)";
                 e.currentTarget.style.transform = "translateY(-2px)";
               }}
               onMouseLeave={(e) => {
@@ -460,8 +460,8 @@ export default function Hero() {
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.color = "#E8E5DD";
-                e.currentTarget.style.borderColor = "var(--accent, #78A88B)";
-                e.currentTarget.style.background = "rgba(120, 168, 139, 0.08)";
+                e.currentTarget.style.borderColor = "var(--accent, #C9A84C)";
+                e.currentTarget.style.background = "rgba(201, 168, 76, 0.09)";
                 e.currentTarget.style.transform = "translateY(-2px)";
               }}
               onMouseLeave={(e) => {
@@ -490,8 +490,8 @@ export default function Hero() {
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.color = "#E8E5DD";
-                e.currentTarget.style.borderColor = "var(--accent, #78A88B)";
-                e.currentTarget.style.background = "rgba(120, 168, 139, 0.08)";
+                e.currentTarget.style.borderColor = "var(--accent, #C9A84C)";
+                e.currentTarget.style.background = "rgba(201, 168, 76, 0.09)";
                 e.currentTarget.style.transform = "translateY(-2px)";
               }}
               onMouseLeave={(e) => {

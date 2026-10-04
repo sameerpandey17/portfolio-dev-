@@ -107,7 +107,7 @@ function HighlightedText({ text, projectId }: { text: string; projectId: string 
         terms.some(t => t.toLowerCase() === part.toLowerCase()) ? (
           <span
             key={i}
-            className="text-[#E8E5DD] underline decoration-[var(--accent,#78A88B)]/50 decoration-1 underline-offset-4 hover:decoration-[var(--accent,#78A88B)] transition-colors font-normal"
+            className="text-[#E8E5DD] underline decoration-[var(--accent,#C9A84C)]/50 decoration-1 underline-offset-4 hover:decoration-[var(--accent,#C9A84C)] transition-colors font-normal"
           >
             {part}
           </span>
@@ -204,7 +204,7 @@ function ProjectSection({
           fontFamily: "var(--font-mono), monospace",
           fontSize: 12.5,
           letterSpacing: "0.04em",
-          color: "var(--accent, #78A88B)",
+          color: "var(--accent, #C9A84C)",
           marginBottom: 16,
           opacity: 0,
         }}
@@ -282,21 +282,21 @@ function ProjectSection({
               fontSize: 13,
               letterSpacing: "0.08em",
               textTransform: "uppercase",
-              color: isExpanded ? "#E8E5DD" : "var(--accent, #78A88B)",
-              background: isExpanded ? "rgba(255,255,255,0.08)" : "rgba(120,168,139,0.08)",
-              border: `1px solid ${isExpanded ? "rgba(255,255,255,0.2)" : "rgba(120,168,139,0.35)"}`,
+              color: isExpanded ? "#E8E5DD" : "var(--accent, #C9A84C)",
+              background: isExpanded ? "rgba(255,255,255,0.08)" : "rgba(201,168,76,0.09)",
+              border: `1px solid ${isExpanded ? "rgba(255,255,255,0.2)" : "rgba(201,168,76,0.35)"}`,
               padding: "9px 18px",
               borderRadius: 6,
               cursor: "pointer",
               transition: "all 0.25s ease",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.background = isExpanded ? "rgba(255,255,255,0.12)" : "rgba(120,168,139,0.16)";
-              e.currentTarget.style.borderColor = "var(--accent, #78A88B)";
+              e.currentTarget.style.background = isExpanded ? "rgba(255,255,255,0.12)" : "rgba(201,168,76,0.18)";
+              e.currentTarget.style.borderColor = "var(--accent, #C9A84C)";
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.background = isExpanded ? "rgba(255,255,255,0.08)" : "rgba(120,168,139,0.08)";
-              e.currentTarget.style.borderColor = isExpanded ? "rgba(255,255,255,0.2)" : "rgba(120,168,139,0.35)";
+              e.currentTarget.style.background = isExpanded ? "rgba(255,255,255,0.08)" : "rgba(201,168,76,0.09)";
+              e.currentTarget.style.borderColor = isExpanded ? "rgba(255,255,255,0.2)" : "rgba(201,168,76,0.35)";
             }}
           >
             <span>{isExpanded ? "Show less" : "Know more!"}</span>
@@ -375,7 +375,7 @@ function ProjectSection({
                 fontSize: 13,
                 letterSpacing: "0.1em",
                 textTransform: "uppercase" as const,
-                color: "var(--accent, #78A88B)",
+                color: "var(--accent, #C9A84C)",
                 textDecoration: "none",
               }}
             >
@@ -429,7 +429,7 @@ function ProjectSection({
                   style={{
                     padding: "clamp(20px,3vh,32px) clamp(20px,2.5vw,36px)",
                     borderRight: i < 2 ? "1px solid rgba(255,255,255,0.07)" : "none",
-                    background: col.accent ? "rgba(111,175,135,0.04)" : "transparent",
+                    background: col.accent ? "rgba(201,168,76,0.06)" : "transparent",
                   }}
                 >
                   <span
@@ -438,7 +438,7 @@ function ProjectSection({
                       fontSize: 11.5,
                       letterSpacing: "0.2em",
                       textTransform: "uppercase" as const,
-                      color: col.accent ? "var(--accent, #78A88B)" : "#A1A1AA",
+                      color: col.accent ? "var(--accent, #C9A84C)" : "#A1A1AA",
                       display: "block",
                       marginBottom: 12,
                     }}
@@ -500,10 +500,10 @@ export default function Work() {
       const isActive = i === idx;
 
       if (dot) {
-        dot.style.background = isActive ? "var(--accent, #78A88B)" : "rgba(255,255,255,0.2)";
+        dot.style.background = isActive ? "var(--accent, #C9A84C)" : "rgba(255,255,255,0.2)";
         dot.style.transform  = isActive ? "scale(1.4)" : "scale(1)";
       }
-      if (num) num.style.color = isActive ? "var(--accent, #78A88B)" : "rgba(255,255,255,0.4)";
+      if (num) num.style.color = isActive ? "var(--accent, #C9A84C)" : "rgba(255,255,255,0.4)";
     });
   }, []);
 
@@ -566,7 +566,7 @@ export default function Work() {
                     fontFamily: "var(--font-mono), monospace",
                     fontSize: 10,
                     letterSpacing: "0.12em",
-                    color: i === 0 ? "var(--accent, #78A88B)" : "rgba(255,255,255,0.4)",
+                    color: i === 0 ? "var(--accent, #C9A84C)" : "rgba(255,255,255,0.4)",
                     transition: "color 0.3s ease",
                   }}
                 >
@@ -579,7 +579,7 @@ export default function Work() {
                     width: 6,
                     height: 6,
                     borderRadius: "50%",
-                    background: i === 0 ? "var(--accent, #78A88B)" : "rgba(255,255,255,0.2)",
+                    background: i === 0 ? "var(--accent, #C9A84C)" : "rgba(255,255,255,0.2)",
                     transition: "background 0.3s ease, transform 0.3s ease",
                     transform: i === 0 ? "scale(1.4)" : "scale(1)",
                   }}
@@ -612,7 +612,7 @@ export default function Work() {
                   fontFamily: "var(--font-mono), monospace",
                   fontSize: 12,
                   letterSpacing: "0.04em",
-                  color: "var(--accent, #78A88B)",
+                  color: "var(--accent, #C9A84C)",
                   display: "block",
                   marginBottom: 16,
                 }}
@@ -693,7 +693,7 @@ export default function Work() {
               width: 24,
               transformOrigin: "left",
               transform: i === 0 ? "scaleX(1)" : "scaleX(0.25)",
-              background: i === 0 ? "var(--accent, #78A88B)" : "rgba(255,255,255,0.15)",
+              background: i === 0 ? "var(--accent, #C9A84C)" : "rgba(255,255,255,0.15)",
               borderRadius: 1,
               transition: "transform 0.3s ease, background 0.3s ease",
             }}

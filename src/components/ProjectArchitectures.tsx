@@ -65,19 +65,19 @@ function Node({
       <rect
         x={x - w / 2} y={y - h / 2} width={w} height={h}
         rx={2}
-        fill={accent ? "rgba(120,168,139,0.08)" : "rgba(255,255,255,0.03)"}
-        stroke={accent ? "rgba(120,168,139,0.4)" : "rgba(255,255,255,0.1)"}
+        fill={accent ? "rgba(201,168,76,0.08)" : "rgba(255,255,255,0.03)"}
+        stroke={accent ? "rgba(201,168,76,0.4)" : "rgba(255,255,255,0.1)"}
         strokeWidth={1}
       />
       {tier && (
         <text x={x} y={y - h / 2 + 10} textAnchor="middle"
-          fontSize={7} fill={accent ? "#78A88B" : "#777774"}
+          fontSize={7} fill={accent ? "#C9A84C" : "#777774"}
           fontFamily="IBM Plex Mono, monospace" letterSpacing={1}>
           {tier}
         </text>
       )}
       <text x={x} y={tier ? y + 2 : y + 4} textAnchor="middle"
-        fontSize={10} fill={accent ? "#78A88B" : "#E8E5DD"}
+        fontSize={10} fill={accent ? "#C9A84C" : "#E8E5DD"}
         fontFamily="IBM Plex Mono, monospace" fontWeight={500}>
         {label}
       </text>
@@ -116,11 +116,11 @@ export function VisionLinkArchitecture() {
 
         {/* Flow lines */}
         <FlowLine d="M 120 80 L 210 80" delay={0} duration={2.2} />
-        <FlowLine d="M 310 80 L 390 80" delay={0.4} duration={2.0} color="rgba(120,168,139,0.7)" />
+        <FlowLine d="M 310 80 L 390 80" delay={0.4} duration={2.0} color="rgba(201,168,76,0.7)" />
         <FlowLine d="M 490 80 L 580 80" delay={0.8} duration={2.2} />
 
         {/* Reverse flow — Redis back to FastAPI */}
-        <FlowLine d="M 390 95 Q 350 120 310 95" delay={1} duration={3} color="rgba(120,168,139,0.35)" />
+        <FlowLine d="M 390 95 Q 350 120 310 95" delay={1} duration={3} color="rgba(201,168,76,0.35)" />
 
         {/* Nodes */}
         <Node x={70}  y={80} w={100} h={44} label="Browser" sub="WebSocket" tier="CLIENT" />
@@ -138,7 +138,7 @@ export function VisionLinkArchitecture() {
 
         {/* Signal pulses */}
         <SignalDot cx={165} cy={80} delay={0} duration={2.2} />
-        <SignalDot cx={345} cy={80} delay={0.4} duration={2} color="#78A88B" />
+        <SignalDot cx={345} cy={80} delay={0.4} duration={2} color="#C9A84C" />
         <SignalDot cx={535} cy={80} delay={0.8} duration={2.2} />
 
         {/* Axis label */}
@@ -189,13 +189,13 @@ export function AivoaArchitecture() {
         <Node x={570} y={122} w={116} h={42} label="Risk Score"   sub="Downstream node" tier="ASSESS" accent />
 
         {/* Pipeline flows */}
-        <FlowLine d="M 318 95 L 352 95" delay={0.3} duration={1.8} color="rgba(120,168,139,0.8)" />
+        <FlowLine d="M 318 95 L 352 95" delay={0.3} duration={1.8} color="rgba(201,168,76,0.8)" />
         <FlowLine d="M 468 85 L 512 68"  delay={0.7} duration={1.8} />
-        <FlowLine d="M 468 105 L 512 122" delay={0.9} duration={1.8} color="rgba(120,168,139,0.5)" />
+        <FlowLine d="M 468 105 L 512 122" delay={0.9} duration={1.8} color="rgba(201,168,76,0.5)" />
 
-        <SignalDot cx={335} cy={95} delay={0.3} color="#78A88B" />
+        <SignalDot cx={335} cy={95} delay={0.3} color="#C9A84C" />
         <SignalDot cx={490} cy={76}  delay={0.7} />
-        <SignalDot cx={490} cy={114} delay={0.9} color="rgba(120,168,139,0.7)" />
+        <SignalDot cx={490} cy={114} delay={0.9} color="rgba(201,168,76,0.7)" />
 
         <text x="350" y="188" textAnchor="middle" fontSize={8}
           fill="rgba(255,255,255,0.2)" fontFamily="IBM Plex Mono, monospace" letterSpacing={2}>
@@ -228,10 +228,10 @@ export function CaloRupeeArchitecture() {
         <rect width="700" height="140" fill="url(#cr-grid)" />
 
         <FlowLine d="M 120 70 L 215 70" delay={0} />
-        <FlowLine d="M 320 70 L 400 70" delay={0.5} color="rgba(120,168,139,0.7)" />
+        <FlowLine d="M 320 70 L 400 70" delay={0.5} color="rgba(201,168,76,0.7)" />
         <FlowLine d="M 510 70 L 600 70" delay={1.0} />
         {/* Validation loop back */}
-        <FlowLine d="M 600 80 Q 560 110 510 85 Q 460 110 400 85" delay={1.5} duration={3.5} color="rgba(120,168,139,0.3)" />
+        <FlowLine d="M 600 80 Q 560 110 510 85 Q 460 110 400 85" delay={1.5} duration={3.5} color="rgba(201,168,76,0.3)" />
 
         <Node x={70}  y={70} w={100} h={40} label="₹80 to ₹120/day" sub="Budget Cap" tier="CONSTRAINT" />
         <Node x={265} y={70} w={110} h={40} label="Dual LLM" sub="Groq + Fallback" tier="GENERATION" accent />
@@ -239,7 +239,7 @@ export function CaloRupeeArchitecture() {
         <Node x={640} y={70} w={100} h={40} label="Nutrition API" sub="Ground Truth" tier="VERIFY" />
 
         <SignalDot cx={168} cy={70} delay={0} />
-        <SignalDot cx={360} cy={70} delay={0.5} color="#78A88B" />
+        <SignalDot cx={360} cy={70} delay={0.5} color="#C9A84C" />
         <SignalDot cx={555} cy={70} delay={1.0} />
 
         <text x="350" y="132" textAnchor="middle" fontSize={8}
@@ -274,21 +274,21 @@ export function NutriSyncArchitecture() {
 
         {/* RL loop — circular arrows */}
         <FlowLine d="M 160 80 L 270 80" delay={0} />
-        <FlowLine d="M 420 80 L 530 80" delay={0.6} color="rgba(120,168,139,0.7)" />
+        <FlowLine d="M 420 80 L 530 80" delay={0.6} color="rgba(201,168,76,0.7)" />
         {/* Reward back to agent */}
-        <FlowLine d="M 530 95 Q 500 130 350 130 Q 200 130 160 95" delay={1.2} duration={3} color="rgba(120,168,139,0.4)" />
+        <FlowLine d="M 530 95 Q 500 130 350 130 Q 200 130 160 95" delay={1.2} duration={3} color="rgba(201,168,76,0.4)" />
 
         <Node x={100} y={80} w={110} h={44} label="RL Agent" sub="Policy Network" tier="AGENT" />
         <Node x={345} y={80} w={130} h={48} label="Reward Engine" sub="15-Factor Shape" tier="OBJECTIVE" accent />
         <Node x={590} y={80} w={110} h={44} label="Gradio" sub="Policy Visualizer" tier="MONITOR" />
 
         <SignalDot cx={215} cy={80} delay={0} />
-        <SignalDot cx={475} cy={80} delay={0.6} color="#78A88B" />
-        <SignalDot cx={350} cy={130} delay={1.2} r={2} color="rgba(120,168,139,0.6)" />
+        <SignalDot cx={475} cy={80} delay={0.6} color="#C9A84C" />
+        <SignalDot cx={350} cy={130} delay={1.2} r={2} color="rgba(201,168,76,0.6)" />
 
         {/* 50 foods label */}
         <text x="345" y="54" textAnchor="middle" fontSize={9}
-          fill="rgba(120,168,139,0.5)" fontFamily="IBM Plex Mono, monospace">
+          fill="rgba(201,168,76,0.5)" fontFamily="IBM Plex Mono, monospace">
           ACTION SPACE: 50 Indian food items
         </text>
 
@@ -333,7 +333,7 @@ export function HackathonArchitecture() {
 
         <SignalDot cx={168} cy={65} delay={0} />
         <SignalDot cx={358} cy={65} delay={0.4} />
-        <SignalDot cx={540} cy={65} delay={0.8} color="#78A88B" />
+        <SignalDot cx={540} cy={65} delay={0.8} color="#C9A84C" />
 
         <text x="350" y="122" textAnchor="middle" fontSize={8}
           fill="rgba(255,255,255,0.2)" fontFamily="IBM Plex Mono, monospace" letterSpacing={2}>

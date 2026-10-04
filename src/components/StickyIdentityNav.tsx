@@ -6,9 +6,7 @@ import { ArrowUpRight, Menu, X } from "lucide-react";
 
 const NAV_LINKS = [
   { label: "Work",      href: "#work"     },
-  { label: "Timeline",  href: "#timeline" },
   { label: "Stack",     href: "#stack"    },
-  { label: "Notes",     href: "#insights" },
   { label: "Contact",   href: "#contact"  },
 ];
 
@@ -147,7 +145,7 @@ export default function StickyIdentityNav() {
                     aria-hidden="true"
                     className="absolute bottom-0 left-0 w-full h-px pointer-events-none"
                     style={{
-                      background: "var(--accent, #78A88B)",
+                      background: "var(--accent, #C9A84C)",
                       transformOrigin: "left",
                       transform: isActive ? "scaleX(1)" : "scaleX(0)",
                       transition: "transform 0.3s cubic-bezier(.16,1,.3,1)",
@@ -176,7 +174,7 @@ export default function StickyIdentityNav() {
                         width: 3,
                         height: 3,
                         borderRadius: "50%",
-                        background: "var(--accent, #78A88B)",
+                        background: "var(--accent, #C9A84C)",
                       }}
                     />
                   )}
@@ -297,7 +295,7 @@ export default function StickyIdentityNav() {
                   fontSize: 13,
                   letterSpacing: "0.14em",
                   textTransform: "uppercase" as const,
-                  color: "var(--accent, #78A88B)",
+                  color: "var(--accent, #C9A84C)",
                   textDecoration: "none",
                 }}
               >
