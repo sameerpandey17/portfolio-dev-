@@ -1,0 +1,693 @@
+@import "tailwindcss";
+
+/* ============================================================
+   EDITORIAL DESIGN SYSTEM — "QUIET CINEMA"
+   Bodoni Moda × Inter × IBM Plex Mono
+   Near-black · Generous negative space · Muted green accent
+   ============================================================ */
+
+:root {
+  /* --- Background Palette (Lifted Black: #0B0C0B) --- */
+  --bg:             #0B0C0B;
+  --bg-raised:      #111211;
+  --bg-surface:     #161716;
+  --bg-card:        #181A18;
+
+  /* --- Borders --- */
+  --border:         rgba(255, 255, 255, 0.08);
+  --border-strong:  rgba(255, 255, 255, 0.16);
+  /* Aliases used by older components */
+  --border-hairline: rgba(255, 255, 255, 0.08);
+  --border-subtle:   rgba(255, 255, 255, 0.04);
+  --surface-raised:  #181A18;
+  --surface-card:    #181A18;
+  --surface-card-hover: #222422;
+
+  /* --- Text Hierarchy (White: #E8E5DD) --- */
+  --text-primary:   #E8E5DD;
+  --text-secondary: #A3A3A0;
+  --text-tertiary:  #777774;
+  --text-technical: #8A8A86;
+
+  /* --- Accent: Secondary Muted Green (#78A88B) --- */
+  --accent:         #78A88B;
+  --accent-dim:     rgba(120, 168, 139, 0.14);
+  /* Alias */
+  --accent-green:         #78A88B;
+  --accent-green-glow:    rgba(120, 168, 139, 0.2);
+
+  /* --- Font Families --- */
+  --font-display: var(--font-display), "Ysabeau Infant", "Georgia", serif;        /* Ysabeau Infant */
+  --font-ui:      var(--font-ui), "Ysabeau", -apple-system, sans-serif;           /* Ysabeau */
+  --font-mono:    var(--font-mono), "Courier New", monospace;                     /* IBM Plex Mono */
+
+  /* --- Fluid Editorial Typography Scale --- */
+  /* Hero name: 120–180px */
+  --text-editorial-hero: clamp(5.5rem, 12vw + 1rem, 11.25rem);
+  /* Section headings: 80–140px */
+  --text-editorial-xl: clamp(3.5rem, 7vw + 1rem, 8.75rem);
+  /* Subheadings */
+  --text-editorial-lg: clamp(2rem, 3.5vw + 0.5rem, 3.5rem);
+  /* Body */
+  --text-body:  clamp(1.05rem, 0.4vw + 0.95rem, 1.25rem);
+  /* UI labels */
+  --text-ui:    clamp(0.875rem, 0.2vw + 0.8rem, 1.05rem);
+  /* Technical microcopy */
+  --text-micro: clamp(0.75rem, 0.1vw + 0.7rem, 0.875rem);
+  /* Aliases */
+  --text-hero: clamp(5.5rem, 12vw + 1rem, 11.25rem);
+  --text-3xl: clamp(2.2rem, 3.8vw + 0.5rem, 3.8rem);
+  --text-2xl: clamp(1.65rem, 2.4vw + 0.5rem, 2.75rem);
+  --text-xl: clamp(1.3rem, 1.5vw + 0.4rem, 1.8rem);
+  --text-lg: clamp(1.15rem, 0.9vw + 0.5rem, 1.35rem);
+  --text-base: clamp(1.05rem, 0.4vw + 0.95rem, 1.25rem);
+  --text-sm: clamp(0.92rem, 0.2vw + 0.85rem, 1.05rem);
+  --text-xs: clamp(0.75rem, 0.1vw + 0.7rem, 0.875rem);
+
+  /* --- Spacing --- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --section-py: clamp(5rem, 10vw, 9rem);
+
+  /* --- Layout --- */
+  --max-content: 1320px;
+  --gutter: clamp(1.5rem, 5vw, 4rem);
+  --radius: 2px;
+  --radius-sm: 2px;
+  --radius-lg: 4px;
+
+  /* --- Easing --- */
+  --ease-reveal:     cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-transition: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-spring:     cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* --- Durations --- */
+  --dur-fast: 150ms;
+  --dur-norm: 300ms;
+  --dur-slow: 600ms;
+  --dur-cinematic: 1100ms;
+}
+
+/* ============================================================
+   GLOBAL RESET
+   ============================================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: var(--bg);
+  color: var(--text-primary);
+  /* UI + body uses Inter */
+  font-family: var(--font-ui), -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: auto;
+  color-scheme: dark;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* ============================================================
+   ATMOSPHERIC OVERLAYS
+   ============================================================ */
+
+/* Film grain texture */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 99;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
+
+/* Edge vignette */
+.vignette-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(8, 8, 8, 0.7) 100%);
+}
+
+/* Selection */
+::selection {
+  background: var(--text-primary);
+  color: var(--bg);
+}
+
+/* Focus ring */
+:focus-visible {
+  outline: 1px solid rgba(255, 255, 255, 0.4);
+  outline-offset: 4px;
+}
+
+/* Lenis */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+
+/* ============================================================
+   TYPOGRAPHY SYSTEM
+   ============================================================ */
+
+/* Display font — Bodoni Moda */
+.font-display,
+.editorial {
+  font-family: var(--font-display), "Georgia", serif;
+}
+
+/* UI font — Inter */
+.font-ui {
+  font-family: var(--font-ui), -apple-system, sans-serif;
+}
+
+/* Technical font — IBM Plex Mono */
+.font-mono,
+.font-technical {
+  font-family: var(--font-mono), "Courier New", monospace;
+}
+
+/* Hero Name — Bodoni Moda, massive editorial scale */
+.hero-heading {
+  font-family: var(--font-display), "Georgia", serif;
+  font-size: var(--text-editorial-hero);
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  font-weight: 400;
+  color: var(--text-primary);
+}
+
+/* Section headline — large editorial */
+.section-heading {
+  font-family: var(--font-display), "Georgia", serif;
+  font-size: var(--text-editorial-lg);
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  font-weight: 400;
+  color: var(--text-primary);
+}
+
+/* Technical micro-label */
+.mono-label {
+  font-family: var(--font-mono), monospace;
+  font-size: var(--text-micro);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+
+/* Editorial text link */
+.editorial-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-family: var(--font-ui), sans-serif;
+  font-size: var(--text-ui);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  text-decoration: none;
+  position: relative;
+  transition: color var(--dur-norm) var(--ease-transition),
+              transform var(--dur-norm) var(--ease-transition);
+}
+.editorial-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--text-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur-slow) var(--ease-reveal);
+}
+.editorial-link:hover {
+  color: var(--text-primary);
+  transform: translateX(2px);
+}
+.editorial-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+
+.app-container {
+  width: 100%;
+  max-width: var(--max-content);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.app-section {
+  padding-block: var(--section-py);
+  position: relative;
+}
+
+/* 12-column editorial grid */
+.editorial-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: clamp(1rem, 2vw, 2rem);
+}
+
+/* ============================================================
+   MARQUEE
+   ============================================================ */
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* ============================================================
+   STATUS — minimal active indicator
+   ============================================================ */
+
+.status-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono), monospace;
+  font-size: var(--text-micro);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+
+.pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--accent);
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   TECH TAG — minimal typography
+   ============================================================ */
+
+.tech-chip {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-mono), monospace;
+  font-size: var(--text-micro);
+  color: var(--text-tertiary);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0;
+  background: none;
+  border: none;
+  transition: color var(--dur-fast) var(--ease-transition);
+}
+.tech-chip:hover {
+  color: var(--text-secondary);
+}
+
+/* ============================================================
+   BUTTONS — editorial text-links only
+   ============================================================ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  font-family: var(--font-ui), sans-serif;
+  font-size: var(--text-ui);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: border-color var(--dur-norm) var(--ease-transition),
+              color var(--dur-norm) var(--ease-transition),
+              background var(--dur-norm) var(--ease-transition);
+  background: transparent;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+.btn:hover {
+  border-color: var(--border-strong);
+  color: var(--text-primary);
+}
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-primary {
+  background: var(--text-primary);
+  color: var(--bg);
+  border-color: var(--text-primary);
+  font-weight: 600;
+}
+.btn-primary:hover {
+  background: #ffffff;
+  border-color: #ffffff;
+  color: var(--bg);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-secondary);
+  border-color: var(--border);
+}
+.btn-secondary:hover {
+  border-color: var(--border-strong);
+  color: var(--text-primary);
+  background: rgba(255,255,255,0.02);
+}
+
+.btn-ghost {
+  border-color: transparent;
+  background: transparent;
+  color: var(--text-tertiary);
+  padding-inline: 0;
+}
+.btn-ghost:hover {
+  color: var(--text-primary);
+  border-color: transparent;
+}
+
+/* ============================================================
+   LINK UNDERLINE
+   ============================================================ */
+
+.link-hover-line {
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+}
+.link-hover-line::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--text-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur-norm) var(--ease-transition);
+}
+.link-hover-line:hover::after {
+  transform: scaleX(1);
+}
+
+/* ============================================================
+   SCROLL PROGRESS
+   ============================================================ */
+
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+  transform-origin: 0%;
+  z-index: 100;
+  pointer-events: none;
+}
+
+/* ============================================================
+   STACKING PROJECT CARDS
+   ============================================================ */
+
+.stacking-cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.project-card-sticky {
+  position: sticky;
+  top: 80px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.5rem, 3vw, 2.75rem);
+  box-shadow: 0 -8px 48px rgba(0, 0, 0, 0.7);
+  transition: border-color var(--dur-norm) var(--ease-transition);
+}
+.project-card-sticky:hover {
+  border-color: var(--border-strong);
+}
+
+/* ============================================================
+   TIMELINE
+   ============================================================ */
+
+.timeline-trace-container {
+  position: relative;
+  padding-left: 2rem;
+}
+.timeline-trace-line {
+  position: absolute;
+  left: 7px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--border);
+}
+.timeline-trace-fill {
+  position: absolute;
+  left: 7px;
+  top: 0;
+  width: 1px;
+  background: var(--text-primary);
+  transform-origin: top;
+}
+.timeline-bullet {
+  position: absolute;
+  left: 3px;
+  top: 1.5rem;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 1px solid var(--text-tertiary);
+  transition: border-color var(--dur-norm) var(--ease-transition),
+              background var(--dur-norm) var(--ease-transition);
+}
+.timeline-item-active .timeline-bullet {
+  border-color: var(--text-primary);
+  background: var(--text-primary);
+}
+
+/* ============================================================
+   CUSTOM CURSOR
+   ============================================================ */
+
+.custom-cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  will-change: transform;
+}
+
+.custom-cursor-inner {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(241, 240, 237, 0.95);
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.35s ease,
+              border-color 0.35s ease;
+  border: 1px solid transparent;
+}
+
+.custom-cursor-dot.is-hovering .custom-cursor-inner {
+  transform: translate(-50%, -50%) scale(4.8);
+  background: rgba(111, 175, 135, 0.12);
+  border-color: rgba(111, 175, 135, 0.55);
+  backdrop-filter: blur(2px);
+}
+
+@media (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .custom-cursor-dot { display: none !important; }
+}
+
+/* ============================================================
+   VERTICAL GUIDE LINES (barely visible editorial grid)
+   ============================================================ */
+
+.editorial-guides {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: clamp(1rem, 2vw, 2rem);
+  padding-inline: var(--gutter);
+}
+.editorial-guides span {
+  border-left: 1px solid rgba(255, 255, 255, 0.028);
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .scroll-progress-bar { display: none; }
+  .pulse-dot::after { animation: none; }
+}
+
+/* ============================================================
+   SKIP LINK
+   ============================================================ */
+
+.skip-to-content {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  background: var(--text-primary);
+  color: var(--bg);
+  padding: 0.5rem 1rem;
+  font-family: var(--font-mono), monospace;
+  font-size: var(--text-micro);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  z-index: 9999;
+  transform: translateY(-200%);
+  transition: transform var(--dur-fast) var(--ease-reveal);
+}
+.skip-to-content:focus {
+  transform: translateY(0);
+}
+
+/* ============================================================
+   CLIP-PATH REVEAL ANIMATION
+   ============================================================ */
+
+@keyframes clipRevealUp {
+  from {
+    clip-path: inset(100% 0 0 0);
+    opacity: 0;
+  }
+  to {
+    clip-path: inset(0% 0 0 0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal-clip {
+  animation: clipRevealUp var(--dur-cinematic) var(--ease-reveal) forwards;
+  animation-play-state: paused;
+}
+.reveal-clip.is-visible {
+  animation-play-state: running;
+}
+
+/* ============================================================
+   HERO TYPOGRAPHY — upright Didone, weight 500, both lines #EDEDEA
+   ============================================================ */
+
+.hero-heading {
+  font-family: var(--font-display), "Ysabeau Infant", "Times New Roman", serif;
+  font-size: var(--h-name-size, clamp(64px, 11vw, 190px));
+  font-weight: 500;
+  font-style: normal;           /* UPRIGHT — not italic */
+  letter-spacing: -0.01em;
+  line-height: 0.88;
+  color: var(--h-name-color, #E8E5DD);
+}
+
+/* Recruiter Highlight Underline */
+.recruiter-highlight {
+  color: var(--text-primary, #E8E5DD);
+  text-decoration: underline;
+  text-decoration-color: rgba(120, 168, 139, 0.45);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 4px;
+  transition: text-decoration-color 0.25s ease, color 0.25s ease;
+}
+
+.recruiter-highlight:hover {
+  text-decoration-color: var(--accent, #78A88B);
+  color: #FFFFFF;
+}
+
+
+/* ============================================================
+   EDITORIAL LINK (Work section CTAs)
+   ============================================================ */
+
+.editorial-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  font-family: var(--font-mono), "Courier New", monospace;
+  font-size: clamp(0.625rem, 0.05vw + 0.6rem, 0.6875rem);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+  padding-bottom: 2px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.editorial-link:hover {
+  color: var(--text-primary);
+  border-color: rgba(255,255,255,0.5);
+}
